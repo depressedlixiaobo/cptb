@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { View ,Text ,TextInput,ScrollView ,Button,StatusBar,BVLinearGradient,NativeModules } from 'react-native';
  
 import { SafeAreaView, } from 'react-navigation'
-import  LinearGradient  from 'react-native-linear-gradient'
+import  LinearGradient  from 'react-native-linear-gradient';
+import  Swiper from '../component/Swiper'
+ 
+
 
 
 class App extends Component {
@@ -26,11 +29,6 @@ class App extends Component {
         // style={{backgroundColor:'red'}}
         return (
             <View  style={{flex:1}}>
-                 <StatusBar
-          barStyle="light-content"
-          backgroundColor="#000000"
-        />
-
                 <LinearGradient style={{ paddingTop: 34 }} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} colors={['#FF8900', '#FF5200']}>
                     <View style={{
                          alignItems:"center",
@@ -51,7 +49,13 @@ class App extends Component {
                     </View>
                 </LinearGradient>
 
-                <ScrollView>
+                <ScrollView >
+                    <View style={{height:120}}>
+                        {              
+                            Swiper()
+                        }
+                    </View>
+                     
                     <Text style={{height:100}}>
                                 11
                             </Text>
