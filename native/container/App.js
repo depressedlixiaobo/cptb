@@ -55,13 +55,13 @@ class App extends Component {
                     </View>
                 </LinearGradient>
 
-                <ScrollView   bounces={false} >
+                <ScrollView   bounces={false}  style={{backgroundColor:'#eee'}} showsVerticalScrollIndicator={false}>
                     <View style={{height:120}}>
                         {              
                             Swiper()
                         }
                     </View>
-                     <View style={{paddingTop:15,paddingBottom:15,backgroundColor:'#eee'}}>
+                     <View style={{paddingTop:15,paddingBottom:15}}>
                          <Text style={{paddingLeft:10,fontWeight:'600'}}>我的频道</Text>
                          <ScrollView horizontal={true}  style={{   }}>
                             <View>
@@ -83,27 +83,34 @@ class App extends Component {
                             
                          </ScrollView>
                      </View>
-                    <Text style={{height:100}}>
-                                11
-                            </Text>
+                    <View style={{padding:15}}>
+                        <View style={{ borderRadius: 10, backgroundColor: '#fff', }}>
                             <Text style={{height:100}}>
-                                11
-                            </Text>
-                            <Text style={{height:100}}>
-                            1111111111111111111111
-                            </Text>
-                            <Text style={{height:600}}>
-                                11
-                            </Text>
-                            <Text style={{height:100}}>
-                                22222
-                            </Text>
-                            <View>
-                    <Text>  app.js </Text>
+                                    11
+                                </Text>
+                                <Text style={{height:100}}>
+                                    11
+                                </Text>
+                                <Text style={{height:100}}>
+                                1111111111111111111111
+                                </Text>
+                                <Text style={{height:600}}>
+                                    11
+                                </Text>
+                                <Text style={{height:100}}>
+                                    22222
+                                </Text>
+                        </View>   
+                    </View>
+                    
+
+
+                    <View>
+                        <Text>  app.js </Text>
                         <Button title='这个点击按钮跳转details' onPress={() => {
                             this.props.navigation.navigate('Details')
                         }} />
-                </View>
+                    </View>
                 </ScrollView>
                  
             </View>
