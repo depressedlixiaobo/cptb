@@ -5,11 +5,27 @@ import { SafeAreaView, } from 'react-navigation'
 import  LinearGradient  from 'react-native-linear-gradient';
 import  Swiper from '../component/Swiper'
 import rdImg from '../images/1.png'
+import boxImg from '../images/box.jpg'
 
 
 const barsty = StyleSheet.create({
     img:{
         width:50,height:50
+    },
+    box:{
+        height:120,
+        flex:1,
+        borderStyle:'solid',
+        borderColor:'#eee',
+        borderWidth:0.3,
+        paddingLeft:10,
+         
+        
+    },
+    boximg:{
+        height:120,
+        flex:1,
+    
     }
 })
 
@@ -83,23 +99,35 @@ class App extends Component {
                             
                          </ScrollView>
                      </View>
-                    <View style={{padding:15}}>
-                        <View style={{ borderRadius: 10, backgroundColor: '#fff', }}>
-                            <Text style={{height:100}}>
-                                    11
-                                </Text>
-                                <Text style={{height:100}}>
-                                    11
-                                </Text>
-                                <Text style={{height:100}}>
-                                1111111111111111111111
-                                </Text>
-                                <Text style={{height:600}}>
-                                    11
-                                </Text>
-                                <Text style={{height:100}}>
-                                    22222
-                                </Text>
+                    <View style={{padding:(0,10)}}>
+                        <View style={{ borderRadius:8, backgroundColor: '#fff', }} >
+                                <View style={{paddingTop:10,paddingLeft:10 ,paddingBottom:10}}>
+                                    <Text >淘宝头条</Text>
+                                </View>
+                                {
+                                    [1,2].map((t,index)=>(
+                                        <View key={index} style={{flexDirection:'row'}}>
+                                
+                                            <View style={barsty.box}>
+                                                <Text  >淘好货</Text>
+                                                <View style={barsty.boximg}>
+                                                    <View style={{  flex:1, flexDirection:'row',alignItems:'flex-end'}}>
+                                                        <Image resizeMode='contain' style={{height:80,flex:1}} source={boxImg} />
+                                                        <Image resizeMode='contain' style={{height:80,flex:1}} source={boxImg} />
+                                                    </View> 
+                                                    
+                                                </View>
+                                                
+                                            </View>
+                                            <View style={barsty.box}>
+                                                <Text>
+                                                    2222
+                                                </Text>
+                                            </View>
+                                        </View>
+                                    ))
+                                }
+                               
                         </View>   
                     </View>
                     
