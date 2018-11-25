@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View ,Text ,TextInput,Image,ScrollView ,Button,StatusBar,BVLinearGradient,NativeModules,StyleSheet } from 'react-native';
+import { View ,Text ,TextInput,Dimensions,Image,ScrollView ,Button,StatusBar,BVLinearGradient,NativeModules,StyleSheet } from 'react-native';
  
 import { SafeAreaView, } from 'react-navigation'
 import  LinearGradient  from 'react-native-linear-gradient';
@@ -20,12 +20,10 @@ const barsty = StyleSheet.create({
         borderWidth:0.3,
         paddingLeft:10,
          
-        
     },
     boximg:{
         height:120,
         flex:1,
-    
     }
 })
 
@@ -72,14 +70,14 @@ class App extends Component {
                 </LinearGradient>
 
                 <ScrollView   bounces={false}  style={{backgroundColor:'#eee'}} showsVerticalScrollIndicator={false}>
-                    <View style={{height:120}}>
+                    <View style={{  backgroundColor:'red' }}>
                         {              
                             Swiper()
                         }
                     </View>
                      <View style={{paddingTop:15,paddingBottom:15}}>
                          <Text style={{paddingLeft:10,fontWeight:'600'}}>我的频道</Text>
-                         <ScrollView horizontal={true}  style={{   }}>
+                         <ScrollView horizontal={true}  style={{ }}>
                             <View>
                                 <View style={{flexDirection:'row',padding:5}}>
                                 {
@@ -130,13 +128,20 @@ class App extends Component {
                                
                         </View>   
                     </View>
-                    
-
+                    <View style={{width:320}}>
+                            <View style={{backgroundColor:'red',flex:1,height:30,width:'100%'}}>
+                                
+                                </View>
+                    </View>
+                  
 
                     <View>
                         <Text>  app.js </Text>
                         <Button title='这个点击按钮跳转details' onPress={() => {
-                            this.props.navigation.navigate('Details')
+
+                            var {height, width} = Dimensions.get('window');
+                            alert(width)
+                           // this.props.navigation.navigate('Details')
                         }} />
                     </View>
                 </ScrollView>
