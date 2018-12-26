@@ -1,62 +1,69 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import { createStackNavigator, createAppContainer,BottomTabBar,createBottomTabNavigator } from "react-navigation";
-import Ionicons from '../../node_modules/react-native-vector-icons/Ionicons'
+import { createAppContainer,createBottomTabNavigator } from "react-navigation";
+import Ionicons from '../../node_modules/react-native-vector-icons/FontAwesome'
 import App from './App'
 import WeiTao from './WeiTao'
+import Mine from './Mine'
+import ShopCar from './ShopCar'
+import Msg from './Msg'
+ 
+let tabbarIcon = (oName,aName)=>({ focused, horizontal, tintColor })=>{
+    return <Ionicons name={aName?(focused?aName:oName):oName } color={tintColor}   size={20} />
+}
 
 
-
-const tabNavigator = createBottomTabNavigator(
-    {
-        Home:{
-            screen: App,
-          title:'首页',
-            tabBarLabel:'ccc'
-        },
-        WeiTao:{
-            screen:WeiTao,
-            //title:'微淘'
+let routeConfig = {
+    Home:{
+        screen: App,
+        navigationOptions:
+        {
+            tabBarLabel: '首页',
+            tabBarIcon:tabbarIcon('home','')
         }
     },
+    WeiTao:{
+        screen:WeiTao,
+        navigationOptions:{
+            tabBarLabel: '微淘',
+            tabBarIcon:tabbarIcon('feed')
+        }
+        //title:'微淘'
+    },
+    Msg:{
+        screen:Msg,
+        navigationOptions:{
+            tabBarLabel: '消息',
+            tabBarIcon:tabbarIcon('heartbeat')
+        }
+    },
+    ShopCar:{
+        screen:ShopCar,
+        navigationOptions:{
+            tabBarLabel: '购物车',
+            tabBarIcon:tabbarIcon('shopping-cart')
+        }
+    },
+    Mine:{
+        screen:Mine,
+        navigationOptions:{
+            tabBarLabel: '我的淘宝',
+            tabBarIcon:tabbarIcon('user-circle-o')
+        }
+    },
+}
+
+const tabNavigator = createBottomTabNavigator(
+    routeConfig ,
     {
-        //initialRouteName:'Home',
-        defaultNavigationOptions:({ navigation })=>{
+        mode: 'modal',
+        headerMode: 'none',
+        tabBarOptions:{
            
-            return {
-                tabBarIcon:({ focused, horizontal, tintColor }) =>{
-                   
-                    const { routeName } = navigation.state;
-                    let iconName;
-                    if (routeName === 'Home') {
-                        iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-                      } else if (routeName === 'WeiTao') {
-                         
-                        //  throw routeName;
-                        iconName = `ios-options`//${focused ? '' : '-outline'}`;
-                      }
-                     
-                         
-                    // You can return any component that you like here! We usually use an
-                    // icon component from react-native-vector-icons
-                    return <Ionicons name={iconName} size={horizontal ? 20 : 25} color={tintColor} />;
-                }
-            }
-        },
-        tabBarOptions: {
             activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
-            //horizontal:true
-          },
-        // tabBarOptions:{
-        //     activeTintColor: '#e91e63',
-        //     labelStyle: {
-        //         fontSize: 12,
-        //       },
-        //       style: {
-        //       //  backgroundColor: 'blue',
-        //       },
-        // }
+             inactiveTintColor: 'gray',
+             //showLabel:false
+        }
+       
     }
 )
 
