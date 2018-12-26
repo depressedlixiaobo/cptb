@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SplashScreen from 'react-native-splash-screen'
 import { createAppContainer,createBottomTabNavigator } from "react-navigation";
 import Ionicons from '../../node_modules/react-native-vector-icons/FontAwesome'
 import App from './App'
@@ -70,7 +71,9 @@ const tabNavigator = createBottomTabNavigator(
 const AppContainer = createAppContainer(tabNavigator)
 
 class Root extends Component {
-    
+    componentDidMount() {
+        SplashScreen.hide()
+    }
     render() {
         return (
             <AppContainer />
