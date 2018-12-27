@@ -16,7 +16,7 @@ class App extends Component {
          
               
             <View style={{ flex: 1, alignItems: "center", justifyContent: "center"  }}>
-                 
+               
            
                 <Text>app.js1</Text>
                 <Button title='点击跳转微淘' onPress={()=>{ this.props.navigation.navigate('WeiTao')}} /> 
@@ -36,9 +36,9 @@ const stackNav = createStackNavigator(
         Index:{
             screen:App,
             navigationOptions: {
-                // header:null,
+                 header:null,
                 headerTintColor:'#000',
-           
+                
               
             }
          
@@ -48,8 +48,8 @@ const stackNav = createStackNavigator(
             navigationOptions:({navigation})=>({
                // header:null,
                 //headerMode:'none',
-               
-                headerTransparent:true
+                headerRight:<Text>aaa</Text>,
+               // headerTransparent:true
                 //headerTintColor:'red'
               // headerBackTitle: null
             })
