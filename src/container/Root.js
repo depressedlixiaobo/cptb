@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SafeAreaView } from 'react-native';
 import SplashScreen from 'react-native-splash-screen'
 import { createAppContainer,createBottomTabNavigator } from "react-navigation";
 import Ionicons from '../../node_modules/react-native-vector-icons/FontAwesome'
@@ -76,7 +77,10 @@ class Root extends Component {
     }
     render() {
         return (
-            <AppContainer />
+            
+                    <AppContainer />    
+            
+            
         );
     }
 }

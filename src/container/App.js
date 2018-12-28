@@ -1,33 +1,139 @@
 import React, { Component } from 'react';
-import { View,Text,Image,Button,StatusBar,SafeAreaView } from 'react-native';
+import { View,Text,Dimensions,Image,Button,StatusBar,SafeAreaView,BVLinearGradient,NativeModules,StyleSheet } from 'react-native';
 import { createStackNavigator, createAppContainer,createTabNavigator } from "react-navigation";
+import  LinearGradient  from 'react-native-linear-gradient';
+import Ionicons from '../../node_modules/react-native-vector-icons/FontAwesome'
+
 import Products from './app/Products'
 import Products1 from './app/Products1'
+import { ScrollView } from 'react-native-gesture-handler';
+import { statusHelper} from '../comon/index'
 
+const pageStyle = StyleSheet.create({
 
+        box:{
+            height:48,
+            flexDirection:'row'
+        },
+        saoma:{
+            justifyContent:'center',
+            alignItems:'center',
+            width:46,
+           
+          
+        },
+        smSize:{
+            color:'white',
+            fontSize:10,
+            marginTop:3
+        },
+        search:{
+            
+            justifyContent:'center',
+            alignItems:'center',
+            
+            flex:1,
+            flexDirection:'row'
+        },
+        searchInput:{
+            backgroundColor:'white',
+            alignItems:'center',
+            borderRadius:30,
+            height:30,
+             paddingLeft:15,
+             paddingRight:15,
+            flexDirection:'row',
+            flex:1,
+        },
+        vip:{
+            justifyContent:'center',
+            alignItems:'center',
+            width:46,
+        },
+        hot:{
+            flexDirection:'row',
+            height:30,
+            
+        },
+        hot_word:{
+            width:40,
+            alignItems:'center',
+            justifyContent:'center',
+        },
+        hot_box:{
+            alignItems:'center',
+            justifyContent:'center',
+            flexDirection:'row',
+            padding:25,
+            
+        },
+        hot_key:{
+            borderRadius:30,
+            backgroundColor:'red',
+        }
+})
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {  };
+        let {width,height} =Dimensions.get('window')
+        // this.comStyle = {
+        //     header:{
+        //         gip:
+        //     }
+        // }
     }
     
     render() {
         return (
-         
-              
-            <View style={{ flex: 1, alignItems: "center", justifyContent: "center"  }}>
-               
-           
-                <Text>app.js1</Text>
-                <Button title='点击跳转微淘' onPress={()=>{ this.props.navigation.navigate('WeiTao')}} /> 
-
-                <Button title='点击跳转消息'  onPress={()=>{ this.props.navigation.navigate('Msg')}} /> 
-
-                <Button title='全屏产品页' onPress={()=>{ this.props.navigation.navigate('Products')}} /> 
-                <Button title='带头部产品页' onPress={()=>{ this.props.navigation.navigate('Products1')}} /> 
-                <Button title='打开全屏' onPress={()=>{ this.props.navigation.navigate('WeiTao')}} /> 
-             </View>
-         
+            // translucent={true}
+            <View>
+                
+                <LinearGradient style={{ paddingTop: statusHelper.height }} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} colors={['#FF8900', '#FF5200']}>
+                    <View style={pageStyle.box}>
+                        <View style={pageStyle.saoma}>
+                            <Ionicons name={'camera-retro'}  color={'white'} size={18} />
+                            <Text style={pageStyle.smSize}>扫一扫</Text>
+                        </View>
+                        <View style={pageStyle.search}>
+                            <View style={pageStyle.searchInput}>
+                                  <Ionicons name={'search'}  color={'gray'} size={18} > </Ionicons>
+                                  <Text style={{color:'gray',fontSize:18,flex:1}}>搜索关键字</Text>
+                                  <Ionicons   name={'camera-retro'}  color={'gray'} size={18} > </Ionicons>
+                            </View>
+                        </View>
+                        <View style={pageStyle.vip}>
+                            <Ionicons name={'barcode'}  color={'white'} size={18} />
+                            <Text style={pageStyle.smSize}>会员码</Text>
+                        </View>
+                    </View>
+                    <View style={pageStyle.hot}>
+                          <View style={pageStyle.hot_word}>
+                             <Text style={{ color:'white'}}> 热搜</Text>
+                          </View>
+                          {/* <ScrollView contentContainerStyle={pageStyle.hot_box}>
+                              <View><Text>鼠标</Text></View>
+                          </ScrollView> */}
+                        <View style={pageStyle.hot_box}>
+                           {
+                               [1,2,3,4,5].map(item=>(
+                                <View style={pageStyle.hot_key}><Text>sdafdsafds{item}</Text></View>
+                               ))
+                           }
+                            
+                        </View>
+                    </View>
+                </LinearGradient>
+                <ScrollView >
+        
+                    {
+                        (new Array(50)).fill(50).map((item,index)=>(
+                            <Text key={index}>{'this is item index:'+index}</Text>
+                        ))
+                    }
+                
+                </ScrollView>
+          </View>
         );
     }
 }
