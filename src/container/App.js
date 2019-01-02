@@ -8,15 +8,21 @@ import Products from './app/Products'
 import Products1 from './app/Products1'
 import { ScrollView } from 'react-native-gesture-handler';
 import { statusHelper} from '../comon/index'
+import box from '../images/box.jpg'
 
 const pageStyle = StyleSheet.create({
         ctbox:{
             paddingLeft:10,
             paddingRight:10,
-            marginTop:20
+            marginTop:20,
+            
         },
         Radius:{
-            borderRadius:25
+            borderRadius:10,
+        },
+        cxtPd:{
+            paddingLeft:10,
+          
         },
         box:{
             height:48,
@@ -26,8 +32,7 @@ const pageStyle = StyleSheet.create({
             justifyContent:'center',
             alignItems:'center',
             width:46,
-           
-          
+
         },
         smSize:{
             color:'white',
@@ -85,6 +90,29 @@ const pageStyle = StyleSheet.create({
            // borderRadius:20,
             height:40,
             backgroundColor:'white'
+        },
+        hot_wbox:{
+             color:'#FF6320',//FF6320
+            backgroundColor:'#FFEEEE',
+            //width:30,
+            marginLeft:5,
+            paddingLeft:3,
+            paddingRight:3,
+            height:16
+        },
+        ttbox:{
+            backgroundColor:'white',
+           // marginTop:1,
+            flexDirection:'row',
+            flexWrap:'wrap',
+            borderBottomLeftRadius:15,
+            borderBottomRightRadius:15,
+            paddingBottom:10
+        },
+        ttctxt:{ //淘宝头条内容box
+            height:125,
+            width:'50%',
+            //backgroundColor:'red'
         }
 
 })
@@ -151,16 +179,38 @@ class App extends Component {
                      </View>
                      {/* 淘宝头条 */}
                      <View style={ pageStyle.ctbox}>
-                            <View style={{...pageStyle.Radius,...pageStyle.content_box} }>
-                            <Text>aa</Text>
+                            <View style={{borderTopLeftRadius:15,borderTopRightRadius:15,...pageStyle.content_box,...pageStyle.cxtPd,flexDirection:'row',alignItems:'center'} }>
+                                <Text style={{fontWeight:'800',fontSize:18}}>淘宝头条</Text>
+                                <Text style={pageStyle.hot_wbox}>热门</Text>
+                                <Text style={{paddingLeft:5}}>路由器一个月不关耗电吗？</Text>
+                            </View>
+                            <View style={pageStyle.ttbox}>
+                               {
+                                    [1,2,3,4,5,6].map((item,index)=>(
+                                        
+                                        <View key={index} style={[index%2==0?({borderRightWidth:1,borderRightColor:'#F2F2F2'}):({}),{...pageStyle.ttctxt},{borderTopColor:'#F2F2F2',borderTopWidth:1,paddingTop:5,paddingLeft:5}]}>
+                                            <View style={{alignitems:"center", flexDirection:'row',height:30,alignItems:"center" }}>
+                                                <Ionicons    name='bolt' size={18} color='rgba(65,184,255,.8)' />
+                                                <Text style={{fontWeight:'800',fontSize:18,paddingLeft:5 }}>有好货</Text>
+
+                                             </View>   
+                                            <View style={{flexDirection:"row"  }}>
+                                                    <Image source={box} style={{width:'50%',height:90}}  /> 
+                                                    <Image source={box} style={{width:'50%',height:90}}  />
+                                            </View>
+                                        </View>
+                                         
+                                    ))
+                               }
+
                             </View>
                      </View>
         
-                    {
+                    {/* {
                         (new Array(50)).fill(50).map((item,index)=>(
                             <Text key={index}>{'this is item index:'+index}</Text>
                         ))
-                    }
+                    } */}
                 
                 </ScrollView>
           </View>
