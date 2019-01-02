@@ -69,7 +69,7 @@ class App extends Component {
                     </View>
                 </LinearGradient>
 
-                <ScrollView   bounces={false}  style={{backgroundColor:'#eee'}} showsVerticalScrollIndicator={false}>
+                <ScrollView   bounces={false}  style={{backgroundColor:'#eee'}}   showsVerticalScrollIndicator={false}>
                     <View style={{  backgroundColor:'red' }}>
                         {              
                             Swiper()
