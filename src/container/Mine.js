@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,Text,Image } from 'react-native';
+import { View,Text,Dimensions,Image,Button,StatusBar,SafeAreaView,BVLinearGradient,NativeModules,StyleSheet } from 'react-native';
 import { createStackNavigator, createAppContainer,createTabNavigator } from "react-navigation";
 
 class Mine extends Component {

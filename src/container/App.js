@@ -155,11 +155,11 @@ class App extends Component {
                 </LinearGradient>
                 
                 <ScrollView bounces={false}  showsVerticalScrollIndicator={false} style={{backgroundColor:'#F2F2F2'}}>
-                {
+                {/* {
                         (new Array(50)).fill(50).map((item,index)=>(
                             <Text key={index}>{'this is item index:'+index}</Text>
                         ))
-                    }
+                    } */}
                     {/* 热搜 */}
                     <LinearGradient start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} colors={['#FF8900', '#FF5200']}>
                         <View style={pageStyle.hot}>
@@ -212,12 +212,7 @@ class App extends Component {
 
                             </View>
                      </View>
-        
-                     {
-                        (new Array(50)).fill(50).map((item,index)=>(
-                            <Text key={index}>{'this is item index:'+index}</Text>
-                        ))
-                    }
+         
                 
                 </ScrollView>
           </View>
