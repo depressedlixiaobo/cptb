@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View,Text,Dimensions,Image,Button,StatusBar,SafeAreaView,BVLinearGradient,NativeModules,StyleSheet } from 'react-native';
-import { createStackNavigator, createAppContainer,createTabNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer,BottomTabBar} from "react-navigation";
 import  LinearGradient  from 'react-native-linear-gradient';
 import Ionicons from '../../node_modules/react-native-vector-icons/FontAwesome'
 import Swiper from './swipe/Swiper'
 import Products from './app/Products'
 import Products1 from './app/Products1'
 import { ScrollView } from 'react-native-gesture-handler';
-import { statusHelper} from '../comon/index'
+import { statusHelper ,isIPhoneX} from '../comon/index'
 import box from '../images/box.jpg'
 
 const pageStyle = StyleSheet.create({
@@ -126,12 +126,13 @@ class App extends Component {
         //         gip:
         //     }
         // }
+         
     }
     
     render() {
         return (
             // translucent={true}
-            <View>
+            <View style={{marginBottom:isIPhoneX?85:64 }}>
                 {/* 头部导航 */}
                 <LinearGradient style={{ paddingTop: statusHelper.height }} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} colors={['#FF8900', '#FF5200']}>
                     <View style={pageStyle.box}>
@@ -152,7 +153,13 @@ class App extends Component {
                         </View>
                     </View>
                 </LinearGradient>
+                
                 <ScrollView bounces={false}  showsVerticalScrollIndicator={false} style={{backgroundColor:'#F2F2F2'}}>
+                {
+                        (new Array(50)).fill(50).map((item,index)=>(
+                            <Text key={index}>{'this is item index:'+index}</Text>
+                        ))
+                    }
                     {/* 热搜 */}
                     <LinearGradient start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} colors={['#FF8900', '#FF5200']}>
                         <View style={pageStyle.hot}>
@@ -206,11 +213,11 @@ class App extends Component {
                             </View>
                      </View>
         
-                    {/* {
+                     {
                         (new Array(50)).fill(50).map((item,index)=>(
                             <Text key={index}>{'this is item index:'+index}</Text>
                         ))
-                    } */}
+                    }
                 
                 </ScrollView>
           </View>
